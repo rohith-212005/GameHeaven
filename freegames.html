@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Games - GameHaven</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="pixelcut-export.jpeg.jpg">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #171a21;
+            color: white;
+        
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar .logo img {
+            width: 200px;
+            height: 45px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li {
+            list-style: none;
+            margin: 10px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+        }
+
+        .navbar ul li a:hover {
+            background: #1aeeef;
+            color: #050e2d;
+            box-shadow: 0 0 10px #1aeeef;
+            text-decoration: none;
+        }
+
+        .search-container {
+            padding: 5px;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 5px;
+        }
+
+        .search-container i{
+            font-size: 1.4em;
+            margin: 5px;
+            color: #222;
+
+        }
+
+        .search-container input {
+            outline: none;
+            font-size: 1em;
+            color: #222;
+            border: none;
+        }
+
+
+
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .search-suggestions p {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .search-suggestions p:hover {
+            background-color: #ddd;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 42px;
+            color: #00d1ff;
+            margin-bottom: 20px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 70px;
+            justify-content: center;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+
+        .game-card {
+            background-color: #25253d;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card img {
+            width: 300px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .game-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .not-found {
+            text-align: center;
+            margin-top: 20px;
+            color: #ff3333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><img src="/HAKETHON/pixelcut-export (2).jpeg.jpg"alt="Website Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="yourstore.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="new.html">Games</a></li>
+                <li><a href="news.html">Store</a></li>
+                <li><a href="lab.html">Downloads</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <a href="#"><i class='bx bx-search'></i></a>
+            <input type="text" id="search-bar" placeholder="Search games...">
+            <div class="search-suggestions" id="suggestions"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Free Games</h1>
+        <div class="game-grid" id="game-list">
+            <!-- Games will be displayed here -->
+        </div>
+        <p id="not-found" class="not-found" style="display: none;">Game Not Found</p>
+    </div>
+
+    <script>
+        const games = [
+    { name: "PUBG: BATTLEGROUNDS", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/578080/688f54eb8c676135d1c3a7a98b0a320b841a4a54/hero_capsule.jpg?t=1736389084", type: "Free" },
+    { name: "Counter-Strike 2", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/730/hero_capsule.jpg?t=1729703045" },
+    { name: "DYNASTY WARRIORS: ORIGINS", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/2384580/410d161a863dd529ab10933b6724aabc65c5c8fc/hero_capsule.jpg?t=1736914471" },
+    { name: "Ready or Not", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/1144200/hero_capsule.jpg?t=1733935197" },
+    { name: "Fortnite", image: "https://cdn1.epicgames.com/offer/fn/EN_BXECO_33-00_Shooter_EGS_Launcher_Blade_1200x1600_1200x1600-aa22c27eee482713023a3c16d610be93" },
+    { name: "VALORANT", image: "https://cdn1.epicgames.com/offer/cbd5b3d310a54b12bf3fe8c41994174f/EGS_VALORANT_RiotGames_S2_1200x1600-46207e34c7dd798d917b694420a4e46d?resize=1&w=360&h=480&quality=medium" },
+    { name: "Destiny 2", image: "https://cdn1.epicgames.com/offer/428115def4ca4deea9d69c99c5a5a99e/EN_Bungie_D2_S26_OfferPortrait_S2_1200x1600_1200x1600-e028bac34f94e8d86a27bdc12a381c5e?resize=1&w=360&h=480&quality=medium" },
+    { name: "Delta Force", image: "https://cdn1.epicgames.com/spt-assets/5e13bf477ca8474e9bd01ae88d6710e7/delta-force-17piz.jpg?resize=1&w=360&h=480&quality=high" },
+    { name: "Asphalt 8 - Car Racing Game", image: "https://cdn1.epicgames.com/spt-assets/d4a5ff74851142388c85956883f90200/asphalt-8--car-racing-game-pfyke.jpg?resize=1&w=360&h=480&quality=medium" },
+    { name: "EA SPORTS FC™ 25 SHOWCASE", image: "https://cdn1.epicgames.com/offer/b61e8ddd14e94619b7a74cf9d73f86b5/EGS_EASPORTSFC25SHOWCASE_EACANADA_Demo_S2_1200x1600-f7f962a6189755db266d907c5d9a3617?resize=1&w=360&h=480&quality=medium" }
+];
+
+const searchBar = document.getElementById("search-bar");
+const suggestions = document.getElementById("suggestions");
+const gameList = document.getElementById("game-list");
+const notFoundMessage = document.getElementById("not-found");
+
+
+    function renderGames(filteredGames) {
+        gameList.innerHTML = "";
+        if (filteredGames.length === 0) {
+            notFoundMessage.style.display = "block";
+        } else {
+            notFoundMessage.style.display = "none";
+            filteredGames.forEach(game => {
+                const card = document.createElement("div");
+                card.classList.add("game-card");
+                card.innerHTML = `
+                    <a href="game-details.html?name=${encodeURIComponent(game.name)}">
+                        <img src="${game.image}" alt="${game.name}">
+                    </a>
+                    <p style="color: gray; font-size: 14px; margin-top: 8px;">Base Game</p>
+                    <h3>${game.name}</h3>
+                    <p style="color: white; font-weight: bold;">${game.type ? game.type : "Free"}</p>
+                `;
+                gameList.appendChild(card);
+            });
+        }
+    }
+
+
+
+searchBar.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    const filteredGames = games.filter(game => game.name.toLowerCase().includes(query));
+
+    if (query === "") {
+        suggestions.innerHTML = "";
+        renderGames(games);
+        return;
+    }
+
+    suggestions.innerHTML = filteredGames.length > 0
+        ? filteredGames.map(game => `<p class="suggestion-item">${game.name}</p>`).join("")
+        : "<p>No matches found</p>";
+
+    document.querySelectorAll(".suggestion-item").forEach(item => {
+        item.addEventListener("click", () => {
+            searchBar.value = item.textContent;
+            suggestions.innerHTML = "";
+            const selectedGame = games.filter(game => game.name === item.textContent);
+            renderGames(selectedGame);
+        });
+    });
+});
+
+// Hide search suggestions when clicking outside
+document.addEventListener("click", (e) => {
+    if (!searchBar.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.innerHTML = "";
+    }
+});
+
+// Initial render of all games
+renderGames(games);
+
+    </script>
+</body>
+</html>

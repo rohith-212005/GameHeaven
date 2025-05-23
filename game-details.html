@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="pixelcut-export.jpeg.jpg">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><img src="/HAKETHON/pixelcut-export (2).jpeg.jpg"alt="Website Logo"></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#store"> Your</a>
+            <a href="#community">Categories</a>
+            <a href="#about">News</a>
+            <a href="/HAKETHON/cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <main id="game-details-container">
+        <!-- Game details will load here -->
+    </main>
+
+     <!-- Tags -->
+        <div class="tags">
+            <span>Open World</span>
+            <span>Action</span>
+            <span>Multiplayer</span>
+            <span>Crime</span>
+            <span>Mature</span>
+        </div>
+
+
+    <footer class="footer">
+        <p>© 2025 Gaming Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Game data
+        const gameData = {
+            "hollow-knight": {
+                title: "Hollow Knight",
+                description: "Forge your own path in Hollow Knight! Explore vast ruins, face terrifying creatures, and discover hidden secrets in this action-packed indie adventure.",
+                releaseDate: "24 Feb, 2017",
+                developer: "Team Cherry",
+                publisher: "Team Cherry",
+                tags: ["Metroidvania", "Indie", "Platformer"],
+                banner: "https://shared.fastly.steamstatic.com/store_item_assets/steam/spotlights/2091bda45242ab0cc0b0e8a9/spotlight_image_english.png?t=1736276018.jpg",
+                trailer: "https://www.youtube.com/embed/UAO2urG23S4",
+                price: "₹345",
+                discount: "50% OFF",
+                systemRequirements: {
+                    minimum: {
+                        OS: 
+                        "Windows 7 64-bit",
+                        CPU: 
+                        "Intel Core 2 Duo E5200",
+                        RAM: "4 GB",
+                        GPU: "GeForce 9800GTX+ (1GB)",
+                        DirectX: "Version 10",
+                        Storage: "9 GB"
+                    },
+                    recommended: {
+                        OS: "Windows 10 64-bit",
+                        CPU: "Intel Core i5",
+                        RAM: "8 GB",
+                        GPU: "GeForce GTX 560",
+                        DirectX: "Version 11",
+                        Storage: "9 GB"
+                    }
+                }
+            },
+            "disco-elysium": {
+                title: "Disco Elysium",
+                description: "A groundbreaking role-playing game. Solve a murder, interrogate suspects, and become a hero or failure.",
+                releaseDate: "15 Oct, 2019",
+                developer: "ZA/UM",
+                publisher: "ZA/UM",
+                tags: ["RPG", "Narrative", "Indie"],
+                banner: "https://example.com/disco-banner.jpg",
+                trailer: "https://youtu.be/u83VdXAVq08?si=HpXt7G12TpO0fcwI",
+                price: "₹799",
+                discount: "25% OFF",
+                systemRequirements: {
+                    minimum: {
+                        OS: "Windows 7 64-bit",
+                        CPU: "Intel Core 2 Duo",
+                        RAM: "4 GB",
+                        GPU: "Integrated Graphics",
+                        DirectX: "Version 11",
+                        Storage: "22 GB"
+                    },
+                    recommended: {
+                        OS: "Windows 10 64-bit",
+                        CPU: "Intel Core i7",
+                        RAM: "8 GB",
+                        GPU: "NVIDIA GTX 1060",
+                        DirectX: "Version 12",
+                        Storage: "22 GB"
+                    }
+                }
+            },
+            "black-myth-wukong": {
+                title: "Black Myth: Wukong",
+                description: "An action-packed RPG inspired by Journey to the West. Play as the legendary Monkey King and fight epic battles.",
+                releaseDate: "2025",
+                developer: "Game Science",
+                publisher: "Game Science",
+                tags: ["Action", "RPG", "Fantasy"],
+                BlackMyth: "Wukong is an action RPG rooted in Chinese mythology. You shall set out as the Destined One to venture into the challenges and marvels ahead, to uncover the obscured truth beneath the veil of a glorious legend from the past",
+                banner: "https://cdn.mos.cms.futurecdn.net/FCY9PcBrhN3pfoNV7FfFTQ.jpg",
+                trailer: "https://www.youtube.com/embed/0Zw-mo0EFt0",
+                price: "₹2,999",
+                discount: "No Discount",
+                systemRequirements: {
+                    minimum: {
+                        OS : 
+                        "Windows 10 64-bit",
+                        CPU: "Intel Core i5-8400 / AMD Ryzen 5 1600",
+                        RAM: "16 GB",
+                        GPU: "NVIDIA GeForce GTX 1060 6GB / AMD Radeon RX 580 8GB",
+                        DirectX: "Version 11",
+                        Storage: "130 GB",
+                        SoundCard: "Windows Compatible Audio Device",
+                        AdditionalNotes: "The above specifications were tested with DLSS/FSR/XeSS enabled",
+                        LoginAccountsRequired: "Epic ID",
+                        LanguagesSupported: "Audio: English, Chinese (Simplified)"
+                    },
+                    recommended: {
+                        OS: "Windows 10 64-bit",
+                        CPU: "Intel Core i7-9700 / AMD Ryzen 5 5500",
+                        RAM: "16 GB",
+                        GPU: "NVIDIA GeForce RTX 2060 / AMD Radeon RX 5700 XT / INTEL Arc A750",
+                        DirectX: "DirectX 12",
+                        Storage: "130 GB",
+                        SoundCard : "Windows Compatible Audio Device"
+                    }
+                }
+            }
+        };
+    
+        // Get game ID from the URL
+        const params = new URLSearchParams(window.location.search);
+        const gameId = params.get("game");
+    
+        // Get the container for game details
+        const container = document.getElementById("game-details-container");
+    
+        // Check if game exists in gameData
+        if (gameId && gameData[gameId]) {
+            const game = gameData[gameId];
+    
+            // Generate system requirements HTML
+            const systemReqHTML = `
+                <section class="system-requirements">
+                <h2>System Requirements</h2>
+                <div class="requirements">
+                <div class="minimum">
+                    <h3>Minimum</h3>
+                    <ul>
+                        <li><strong>OS:</strong> ${game.systemRequirements.minimum.OS}</li>
+                        <li><strong>CPU:</strong> ${game.systemRequirements.minimum.CPU}</li>
+                       <li><strong>RAM:</strong> ${game.systemRequirements.minimum.RAM}</li>
+                        <li><strong>GPU:</strong> ${game.systemRequirements.minimum.GPU}</li>
+                        <li><strong>DirectX:</strong> ${game.systemRequirements.minimum.DirectX}</li>
+                        <li><strong>Storage:</strong> ${game.systemRequirements.minimum.Storage}</li>
+                        <li><strong>SoundCard:</strong> ${game.systemRequirements.minimum.SoundCard}</li>
+                    </ul>
+            </div>
+            <div class="recommended">
+                <h3>Recommended</h3>
+                <ul>
+                    <li><strong>OS:</strong> ${game.systemRequirements.recommended.OS}</li>
+                    <li><strong>CPU:</strong> ${game.systemRequirements.recommended.CPU}</li>
+                    <li><strong>RAM:</strong> ${game.systemRequirements.recommended.RAM}</li>
+                    <li><strong>GPU:</strong> ${game.systemRequirements.recommended.GPU}</li>
+                    <li><strong>DirectX:</strong> ${game.systemRequirements.recommended.DirectX}</li>
+                    <li><strong>Storage:</strong> ${game.systemRequirements.recommended.Storage}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+            `;
+    
+            // Insert game details into the page
+            container.innerHTML = `
+                <section class="game-banner">
+                    <img src="${game.banner}" alt="${game.title}">
+                </section>
+                <section class="game-info">
+                    <div class="game-summary">
+                        <h1>${game.title}</h1>
+                        <p>${game.description}</p>
+                        <ul>
+                            <li><strong>Release Date:</strong> ${game.releaseDate}</li>
+                            <li><strong>Developer:</strong> ${game.developer}</li>
+                            <li><strong>Publisher:</strong> ${game.publisher}</li>
+                            <li><strong>Tags:</strong> ${game.tags.join(", ")}</li>
+                            <li><strong>BlackMyth:</strong> ${game.BlackMyth}</li>
+                        </ul>
+                    </div>
+                    <div class="game-media">
+                        ${game.trailer.includes("youtube.com") || game.trailer.includes("youtu.be") ? 
+                            `<iframe src="${game.trailer}" frameborder="0" allowfullscreen></iframe>` :
+                            `<video controls>
+                                <source src="${game.trailer}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>`
+                        }
+                    </div>
+
+                </section>
+                ${systemReqHTML}
+                <section class="purchase-options">
+                    <h2>Buy ${game.title}</h2>
+                    <p><strong>${game.discount}</strong> - Now ${game.price}</p>
+                    <button class="btn-buy" onclick="buyNow('${game.title}', '${game.price}')">Buy Now</button>
+                    <button class="btn-buy" onclick="Buynow('${game.title}', '${game.banner}', '${game.price}', '${game.tags[0]}')">Add to Cart</button>
+                </section>
+
+                
+            `;
+        } else {
+            container.innerHTML = `<p>Game not found. Check the URL or go back to the <a href="index.html">homepage</a>.</p>`;
+        }
+
+        function buyNow(title, price) {
+            // Redirect to payment page with game details
+            window.location.href = `payment.html?ticketName=${encodeURIComponent(title)}&ticketPrice=${encodeURIComponent(price)}`;
+        }
+
+    </script>
+    
+</body>
+</html>

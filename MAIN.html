@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHaven - Home</title>
+    <link rel="icon" type="image/png" href="pixelcut-export.jpeg.jpg">
+    <style>
+      /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #21293d;
+            color: white;
+        
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar .logo img {
+            width: 200px;
+            height: 45px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar  ul li {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .navbar  ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover {
+            background: #1aeeef;
+            color: #050e2d;
+            box-shadow: 0 0 10px #1aeeef;
+            text-decoration: none;
+        }
+
+        /* Hero Carousel */
+        .hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .hero .carousel {
+            display: flex;
+            height: 100%;
+            animation: slide 15s infinite;
+        }
+
+        .hero .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero .carousel-content {
+            position: absolute;
+            bottom: 50px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero .carousel-content h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero .carousel-content p {
+            font-size: 16px;
+        }
+
+        @keyframes slide {
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-100%); }
+            50%, 70% { transform: translateX(-200%); }
+            75%, 100% { transform: translateX(-300%); }
+        }
+
+        /* Hero Section */
+
+        /* Hero Section */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    min-height: 650px;
+    padding: 60px;
+    background: 
+    linear-gradient(to top, black 5%, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0) 70%), 
+    url('./wallpaperflare.com_wallpaper.jpg') no-repeat center center;
+    background-size: 100%;
+    background-position: right;
+/* Push image to the right */
+
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.36); /* Adjust transparency */
+    z-index: 1;
+}
+
+
+/* Text Content */
+.hero-content {
+    max-width: 100%;
+    text-align: left;
+    color: #ffffff;
+    position: absolute;
+    left: 2%; /* Moves text left */
+    z-index: 2; /* Ensures text is above background */
+}
+
+.hero-subtitle {
+    color: #059659;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-title .highlight {
+    color: #ffb400;
+}
+
+.hero-text {
+    font-weight: bold;
+    font-family: Helvetica;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Button */
+.btn {
+    background-color: #048650;
+    color: #1e1e2e;
+    padding: 14px 24px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #1aeeef;
+    transform: scale(1.05);
+}
+
+
+
+
+        /* Sidebar and Content */
+        .main-content {
+            display: flex;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: #25253d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .sidebar h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #00d1ff;
+        }
+
+        .content {
+            width: 75%;
+            padding: 20px;
+        }
+
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: #1e1e2e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-card img {
+            width: 70%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .game-card .details {
+            padding: 15px;
+        }
+
+        .game-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .game-card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .game-card button {
+            background-color: #00d1ff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .game-card button:hover {
+            background-color: #007bb5;
+        }
+
+        /* Special Offers Section */
+        .special-offers {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #25253d;
+            border-radius: 10px;
+        }
+
+        .special-offers h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .offer-card {
+            background-color: #1e1e2e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .offer-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .offer-card .details {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .offer-card .details h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .offer-card .details .discount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00d1ff;
+        }
+
+        .offer-card .details p {
+            font-size: 14px;
+        }
+
+        .offer-card .details button {
+            background-color: #00d1ff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #25253d;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .carousel-content img {
+            width: 170%;
+            height: 310px;
+            object-fit: cover;
+        }
+/* Categories Section with Images */
+#categories {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #25253d;
+    border-radius: 10px;
+}
+
+#categories .container {
+    text-align: center;
+}
+
+#categories h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#categories .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.category-item {
+    background-color: #1e1e2e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-item img {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 10%; /* Optional: Makes the images circular */
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+    background-color: #085a27;
+    color: #1e1e2e;
+}
+
+
+        /* Your existing CSS goes here */
+      
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><img src="/HAKETHON/pixelcut-export (2).jpeg.jpg"alt="Website Logo">
+        </div>
+        <nav>
+
+            
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#tournaments">Tournaments</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section hero" id="home" aria-label="home"
+        style="background-image: url('./wallpaperflare.com_wallpaper.jpg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <p class="hero-subtitle">Black Myth: Wukong</p>
+
+            <h1 class="h1 hero-title">
+              Epic  <span class="span">Adventure</span> Awaits!
+            </h1>
+            <br>
+            <p class="hero-text">
+                An action-packed RPG inspired by Journey to the West. Play as the legendary Monkey King and fight epic battles.
+            </p>
+            <br>
+
+            <button class="btn skewBg">View details</button>
+
+          </div>
+
+        </div>
+    </section>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <h3>Browse Categories</h3>
+            <ul>
+                <li><a href="#">Recently Viewed</a></li>
+                <li><a href="#">Top Sellers</a></li>
+                <li><a href="#">New Releases</a></li>
+                <li><a href="#">Action</a></li>
+                <li><a href="#">RPG</a></li>
+            </ul>
+        </aside>
+
+        <div class="content" id="games">
+            <h2>Featured Games</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2358720/header.jpg?t=1736335042" alt="Black Myth Wukong">
+                    <div class="details">
+                        <h3>Black Myth: Wukong</h3>
+                        <p>An epic adventure awaits!</p>
+                        <button onclick="location.href='game-details.html?game=black-myth-wukong'">View Details</button>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg" alt="Game 2">
+                    <div class="details">
+                        <h3>Grand Theft Auto V</h3>
+                        <p>Multiplayer action like never before.</p>
+                        <a href="/HAKETHON/GTA.html">
+                            <button>View Details</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <section class="special-offers">
+                <h2>Special Offers</h2>
+                <div class="offer-grid">
+                    <div class="offer-card">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/spotlights/2091bda45242ab0cc0b0e8a9/spotlight_image_english.png?t=1736276018.jpg" alt="Hollow Knight">
+                        <div class="details">
+                            <h3>Hollow Knight</h3>
+                            <p>Offer ends 15 Jan @ 11:30 PM</p>
+                            <p class="discount">-50% | ₹345</p>
+                            <button onclick="location.href='game-details.html?game=hollow-knight'">View Details</button>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/spotlights/597d01a93761b351de661507/spotlight_image_english.jpg?t=1736288852.jpg" alt="Disco Elysium">
+                        <div class="details">
+                            <h3>Disco Elysium</h3>
+                            <p>Offer ends 16 Jan @ 11:30 PM</p>
+                            <p class="discount">-75% | ₹224</p>
+                            <button onclick="location.href='game-details.html?game=disco-elysium'">View Details</button>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1331510/header.jpg?t=1722235951.jpg" alt="Battle Talent">
+                        <div class="details">
+                            <h3>Battle Talent</h3>
+                            <p>Today's Deal!</p>
+                            <p class="discount">-25% | ₹660</p>
+                            <button onclick="location.href='game-details.html?game=battle-talent'">View Details</button>
+                        </div>
+                    </div>
+                    <div class="offer-card">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1771980/header.jpg?t=1732030142.jpg" alt="The Operator">
+                        <div class="details">
+                            <h3>The Operator</h3>
+                            <p>Today's Deal!</p>
+                            <p class="discount">-25% | ₹487</p>
+                            <button onclick="location.href='game-details.html?game=the-operator'">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+<section id="categories">
+    <div class="container">
+        <h2>Browse by Category</h2>
+        <div class="categories-grid">
+            <div class="category-item">
+                <button onclick="window.location.href='HAKETHON/freegames.html';"></button>
+                <a href="/HAKETHON/freegames.html">
+                    <img src="/HAKETHON/Screenshot 2025-01-16 134852.png" alt="Free to Play">
+                </a>
+                </button>
+                Free to Play
+            </div>
+            <div class="category-item">
+                <a href="/HAKETHON/Newaction.html">
+                    <img src="/HAKETHON/IMG-2.png" alt="Action">
+                </a>
+                Action
+            </div>
+            <div class="category-item">
+                <img src="/HAKETHON/IMG-3.png" alt="Casual">
+                Casual
+            </div>
+            <div class="category-item">
+                <img src="/HAKETHON/IMG-4.png" alt="Simulation">
+                Simulation
+            </div>
+        </div>
+        <script>
+            let lastScrollTop = 0;
+            const navbar = document.querySelector(".navbar");
+        
+            window.addEventListener("scroll", function () {
+                let scrollTop = window.scrollY;
+                
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling Down - Hide Navbar
+                    navbar.style.top = "-70px";
+                } else {
+                    // Scrolling Up - Show Navbar
+                    navbar.style.top = "0";
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        </script>
+        
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 GameHaven. All rights reserved.</p>
+    </footer>
+</body>
+</html>

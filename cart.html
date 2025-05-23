@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHaven - Store</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">GameHaven</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="yourstore.html">Your Store</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Game Listings Section -->
+    <section class="game-listings">
+        <h1>Top Games</h1>
+        <div class="games-container">
+            <!-- Game 1 -->
+            <div class="game-card" data-name="Counter-Strike 2" data-image="images/cs2.jpg" data-price="Free" data-type="FPS">
+                <img src="images/cs2.jpg" alt="Counter-Strike 2">
+                <h2>Counter-Strike 2</h2>
+                <p><strong>Type:</strong> FPS</p>
+                <p><strong>Price:</strong> Free</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Game 2 -->
+            <div class="game-card" data-name="PUBG: Battlegrounds" data-image="images/pubg.jpg" data-price="Free" data-type="Battle Royale">
+                <img src="images/pubg.jpg" alt="PUBG">
+                <h2>PUBG: Battlegrounds</h2>
+                <p><strong>Type:</strong> Battle Royale</p>
+                <p><strong>Price:</strong> Free</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <!-- Add more games as needed -->
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section" id="cart">
+        <h1>My Cart</h1>
+        <div id="cart-items">
+            <p>Your cart is empty.</p>
+        </div>
+        <button id="checkout-btn" style="display: none;">Checkout</button>
+    </section>
+
+    <script src="cart.js"></script>
+</body>
+</html>

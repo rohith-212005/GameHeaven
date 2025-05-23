@@ -1,0 +1,336 @@
+
+###MAIN ACTION HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Games - GameHaven</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #171a21;
+            color: white;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar .logo img {
+            width: 220px;
+            height: 45px;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 36px;
+            color: #00d1ff;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 50%;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .game-card {
+            background-color: #25253d;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-card img {
+            width: 200px;
+            height: 270px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .game-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Detailed Section */
+        .details-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .left-panel {
+            width: 40%;
+            background-color: #25253d;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .left-panel .mini-game {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .left-panel .mini-game:hover {
+            background-color: #33334d;
+        }
+         .left-panel .mini-game .info p {
+           margin: 5px 0;
+           font-size: 14px;
+           color: #d3d3d3;
+         }
+
+
+        .mini-game img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .mini-game .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-panel {
+            width: 50%;
+            background-color: #25253d;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .right-panel h2 {
+            margin-bottom: 10px;
+        }
+
+        .right-panel .tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .right-panel .tags span {
+            background-color: #4682B4;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .right-panel .reviews {
+            margin-bottom: 10px;
+        }
+      .right-panel img {
+            width: 100px; /* Adjust the width */
+            height: auto; /* Maintains the aspect ratio */
+            margin: 10px 0; /* Adds some space between the images */
+            border-radius: 5px; /* Optional for rounded corners */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo"><img src="/HAKETHON/pixelcut-export (2).jpeg.jpg"alt="Website Logo"></div>
+        <nav>
+            <ul>
+                <li><a href="yourstore.html">Your Store</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="new.html">New</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="lab.html">Lab</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Action Games</h1>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for games..." oninput="filterGames()">
+        </div>
+        <div class="game-grid" id="game-list">
+          <!-- Game 1 -->
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/578080/688f54eb8c676135d1c3a7a98b0a320b841a4a54/hero_capsule.jpg?t=1736389084" alt="Game 1">
+                <h3>PUBG: BATTLEGROUNDS
+                </h3>
+            </div>
+            <!-- Game 2 -->
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/730/hero_capsule.jpg?t=1729703045" alt="Game 2">
+                <h3>Counter-Strike 2</h3>
+            </div>
+            <!-- Game 3 -->
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/2384580/410d161a863dd529ab10933b6724aabc65c5c8fc/hero_capsule.jpg?t=1736914471" alt="Game 3">
+                <h3>DYNASTY WARRIORS: ORIGINS</h3>
+            </div>
+            <!-- Game 4 -->
+            <div class="game-card">
+                <img src="https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/1144200/hero_capsule.jpg?t=1733935197" alt="Game 4">
+                <h3>Ready or Not</h3>
+            </div>
+            <!-- Games will be displayed here -->
+          
+        </div>
+        <p id="not-found" style="display: none;">Game Not Found</p>
+    </div>
+
+    <!-- Details Section -->
+    <div class="details-section">
+        <div class="left-panel" id="mini-game-list"></div>
+        <div class="right-panel" id="game-details">
+            <h2>Select a game to see details</h2>
+        </div>
+    </div>
+
+    <script>
+      const originalGames = [
+    { name: "PUBG: BATTLEGROUNDS", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/578080/688f54eb8c676135d1c3a7a98b0a320b841a4a54/hero_capsule.jpg", type: "Battle Royale", offer: "-30%", price: "$15.99", tags: ["Action", "Shooter", "Multiplayer"], reviews: "Very Positive" },
+    { name: "Counter-Strike 2", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/730/hero_capsule.jpg", type: "FPS", offer: "-40%", price: "$19.99", tags: ["Action", "Competitive", "Shooter"], reviews: "Overwhelmingly Positive" },
+    { name: "DYNASTY WARRIORS: ORIGINS", image: "https://shared.fastly.steamstatic.com//store_item_assets/steam/apps/2384580/410d161a863dd529ab10933b6724aabc65c5c8fc/hero_capsule.jpg", type: "Action RPG", offer: "-20%", price: "$35.99", tags: ["Action", "RPG", "Adventure"], reviews: "Positive" },
+];
+
+const games = [...originalGames];
+const gameList = document.getElementById("game-list");
+const miniGameList = document.getElementById("mini-game-list");
+const gameDetails = document.getElementById("game-details");
+const notFound = document.getElementById("not-found");
+
+function renderGames(filtered = null) {
+    gameList.innerHTML = "";
+    miniGameList.innerHTML = "";
+    let gamesToRender = filtered || games;
+
+    if (gamesToRender.length === 0) {
+        notFound.style.display = "block";
+    } else {
+        notFound.style.display = "none";
+    }
+
+    gamesToRender.forEach((game, index) => {
+        // Main game card
+        const gameCard = document.createElement("div");
+        gameCard.classList.add("game-card");
+        gameCard.innerHTML = `<img src="${game.image}" alt="${game.name}">
+                              <h3>${game.name}</h3>`;
+        gameCard.addEventListener("click", () => renderGameDetails(index));
+        gameList.appendChild(gameCard);
+
+        // Mini game in the left panel
+        const miniGame = document.createElement("div");
+        miniGame.classList.add("mini-game");
+        miniGame.innerHTML = `
+            <img src="${game.image}" alt="${game.name}">
+            <div class="info">
+                <strong>${game.name}</strong>
+                <p>Type: ${game.type}</p>
+                <p>Offer: ${game.offer}</p>
+                <p>Price: ${game.price}</p>
+            </div>`;
+        
+        miniGame.addEventListener("mouseover", () => renderGameDetails(index)); // Show details on hover
+        miniGameList.appendChild(miniGame);
+    });
+}
+
+function renderGameDetails(index) {
+    const game = games[index];
+    gameDetails.innerHTML = `
+        <h2>${game.name}</h2>
+        <p>Reviews: ${game.reviews}</p>
+        <div class="tags">${game.tags.map(tag => `<span>${tag}</span>`).join(" ")}</div>
+        <img src="${game.image}" alt="${game.name}" style="width: 300px; height: auto; border-radius: 10px;">
+    `;
+}
+
+function filterGames() {
+    const query = document.getElementById("search").value.toLowerCase();
+    const filteredGames = originalGames.filter(game => game.name.toLowerCase().includes(query));
+
+    if (filteredGames.length > 0) {
+        renderGames(filteredGames);
+    } else {
+        gameList.innerHTML = "";
+        notFound.style.display = "block";
+    }
+}
+
+renderGames();
+
+    
+</script>
+
+</body>
+</html>
